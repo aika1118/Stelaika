@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 스텔라이브 팬사이트 맨처음 노출되는 메인 페이지-->
+<!-- main-styles.css와 연동 -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/main-styles.css">
+    <link rel="icon" href="../static/images/favicon.png" type="image/x-icon"> <!-- 홈페이지 대표 아이콘 -->
+    <title>StelLive Fan Site</title>
+</head>
+
+<body class="background-image">
+    <div class="main-container">
+
+        <!-- STELLIVE FAN SITE 및 로고 노출-->
+        <div class = "left-container">     
+            <img id="title" src="../static/images/StelLive_Site_Name.png" alt="스텔라이브 타이틀">
+            <img id="logo" src="../static/images/StelLive_Logo.png" alt="스텔라이브 로고">
+        </div>
+
+        <!-- 기수별 클릭가능한 배너 노출-->
+        <!-- 페이지 연결을 위해 get 형식으로 배너별 다른 정보 제공-->
+        <div class="right-container">
+            <a href="info.html?selected=left-menu-gangGi&button=top-menu-gangGi&main=main-content-init-GangGi">
+                <img src="../static/images/Banner_GangGi.png" alt="배너 강지" class="resizable-image">
+            </a>
+            
+            <a href="info.html?selected=left-menu-1th&button=top-menu-1th&main=main-content-init-1th">
+                <img src="../static/images/Banner_1.png" alt="배너 1기생" class="resizable-image">
+            </a>
+
+            <a href="info.html?selected=left-menu-2nd&button=top-menu-2nd&main=main-content-init-2nd">
+                <img src="../static/images/Banner_2.png" alt="배너 2기생" class="resizable-image">
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-part">
+        <div class="copyright">
+            <div>
+                ⓒ 2024. aika1118 All rights reserved.
+            </div>
+            <div>
+                This site is not associated with (주)스텔라이브
+            </div>
+            <div>
+                Some sourced from <a href="https://www.graphicsfamily.com" id="copyright-link">GraphicsFamily</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

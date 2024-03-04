@@ -1,0 +1,446 @@
+/* float에 영향받지 않고 다음 줄에 컨텐츠를 표시하기 위한 class 작업*/
+.clearfix
+{
+    clear: both;
+    content: '';
+    display: block;
+}
+
+/* 홈페이지 배경화면 지정 */
+body
+{
+    background-image: url('../images/background.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /*배경 이미지 고정*/
+    margin: 0;
+    padding: 0;
+}
+
+/* 로고가 표시되는 영역의 스타일 적용 */
+.logo-container 
+{
+    background-color: #E6E6FA;
+	height: 70px;
+    border-bottom: 1px solid #ddd; /* 아래 경계선 그리기 */
+    user-select: none; /* 텍스트 드래그 방지 */
+    display: flex;
+    align-items: center;
+}
+
+.logo-container a
+{
+    margin-top: 10px; 
+    margin-left: 50px;
+}
+@media screen and (orientation: portrait) 
+{
+    .logo-container a
+    {
+        margin-left: 70px;
+    }
+}
+@media screen and (orientation: portrait) 
+{
+    .logo-container a
+    {
+        margin-left: 40px;
+    }
+}
+
+/* 로고영역의 타이틀 이미지 사이즈 지정 */
+.logo-container #logo-title
+{
+    height: 38px;
+}
+@media screen and (orientation: portrait) 
+{
+    .logo-container #logo-title
+    {
+        height: 30px;
+    }
+}
+
+/* 로고영역의 세로모드 메뉴아이콘 사이즈 지정 */
+.logo-container #logo-menu
+{
+    height: 43px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+@media screen and (orientation: landscape) 
+{
+    .logo-container #logo-menu
+    {
+        display: none;
+    }
+}
+
+
+/* 각 멤버 클릭 영역 스타일 지정 */
+.top-menu-part
+{
+    background-color: #ffffff;
+    height: 35px;
+    border-bottom: 1px solid #ddd;
+    user-select: none; /* 텍스트 드래그 방지 */
+}
+
+/* 각 멤버 클릭 영역의 버튼들 스타일 지정 */
+.top-menu-part > .top-menu-button
+{
+    float: left; /* 버튼이 한 줄에서 가로로 하나씩 배치되도록 설정*/
+	width: 100px;
+    height: 100%;
+	text-align: center;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    text-decoration: none; /* 글자에 밑줄표시 없애기 */
+
+    font-family: 'Jua', sans-serif; /* 글자 폰트 지정 */
+    color: #888894;
+
+    display: flex; /* 버튼 글자가 정중앙에 오도록 설정 */
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.3s ease; /* 버튼에 마우스 오버 시 색이 특정 시간 간격을 소모하여 변하도록 지정 */
+}
+
+/* 버튼에 마우스 오버 시 동작 지정 */
+.top-menu-part > .top-menu-button:hover
+{
+    background-color: #cdcdcd;
+}
+
+/* 버튼 클릭하여 active class가 추가된 경우 하이라이트 스타일 적용 */
+.top-menu-part > .top-menu-button.active
+{
+    border-bottom: 2px solid #8885de; /* 클릭된 버튼의 border-bottom 색상 변경 */
+    color: #8885de; /* 클릭된 버튼의 텍스트 색상 변경 */
+}
+
+/* 왼쪽 메뉴, 컨텐츠 노출 부분 display : flex 적용 (가로배치) */
+.mid-container
+{
+    display: flex;
+    height: 150vh;
+    width: 100%;
+}
+
+/* 왼쪽 메뉴 노출 영역 */
+#left-menu-part
+{
+	background-color: #f2f2f2;
+    border-right: 1px solid #ddd;
+    font-family: 'Jua', sans-serif; /* 글자 폰트 지정 */
+    user-select: none; /* 텍스트 드래그 방지 */
+}
+@media screen and (orientation: landscape) 
+{
+    #left-menu-part
+    {
+        display: block;
+    }
+}
+@media screen and (orientation: portrait) 
+{
+    #left-menu-part
+    {
+        display: none;
+    }
+}
+
+/* 메인 컨텐츠 노출 영역 */
+.main-contents-part
+{   
+    width: 100%;
+    /* display: flex; 메인 컨텐츠 영역 준비 시 사용 (미사용시 주석처리) */
+    /* justify-content: center; 메인 컨텐츠 영역 준비 시 사용 (미사용시 주석처리) */
+}
+
+
+/* 멤버가 1명인 경우 적용되는 메인 초기화면 container (ex. 강지) */
+.main-content-init-1person-container
+{
+    display: flex;
+    justify-content: center;
+}
+/* 세로모드일 때는 title, image를 세로로 배치 */
+@media screen and (orientation: portrait) 
+{
+    .main-content-init-1person-container
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/* 멤버가 2명 이상인 경우 적용되는 메인 초기화면 container (ex. 1기생, 2기생) */
+.main-content-init-container
+{
+    display: flex;
+    justify-content: center;
+}
+/* 세로모드일 때는 title, image를 세로로 배치 */
+@media screen and (orientation: portrait) 
+{
+    .main-content-init-container
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.main-content-init-1person-container img
+{
+    box-sizing: border-box; /* 테두리를 기준으로 크기를 정함, padding 적용해도 현재 width에 영향주지 않음, padding 된 만큼 이미지 작아짐 */
+    width: 30%;
+    height: 30%;
+    min-width: 300px;
+    padding: 40px;
+}
+@media screen and (orientation: portrait) 
+{
+    .main-content-init-1person-container img
+    {
+        margin-top: 10px;    
+        padding: 20px;
+    }
+}
+.main-content-init-container img
+{
+    box-sizing: border-box; /* 테두리를 기준으로 크기를 정함, padding 적용해도 현재 width에 영향주지 않음, padding 된 만큼 이미지 작아짐 */
+    width: 35%;
+    height: 35%;
+    min-width: 320px;
+    padding: 40px;
+}
+@media screen and (orientation: portrait) 
+{
+    .main-content-init-container img
+    {
+        margin-top: 10px;
+        padding: 20px;
+    }
+}
+
+
+
+/* 메인 컨텐츠 영역 준비 시 사용 (미사용시 주석처리) */
+.maintenance
+{
+    width: 300px;
+    height: 300px;
+    margin-top: 40px;
+}
+
+/* 왼쪽 메뉴 container */
+.left-menu-container
+{
+    width: 210px;
+    color: #70707a;
+}
+
+/* 왼쪽 메뉴에서 최상단 기수 String */
+.left-menu-title
+{
+    font-size: 25px;
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+/* 맨 아래 정보영역 */
+.bottom-part
+{
+    display: flex;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-top: 1px solid #ddd;
+}
+
+/* 아이콘, 메뉴이름을 flex 형식으로 display (가로로 배열) */
+.icon-container
+{
+    display: flex;
+    align-items: center;
+    margin-left: 42px;
+}
+
+.icon-container:hover
+{
+    background-color: #cdcdcd;
+}
+
+/* 왼쪽 메뉴에서 세부 메뉴들 */
+.left-sub-menu
+{
+    font-size: 18px;
+    margin: 6px;
+    color: #70707a;
+    text-decoration: none; /* 글자에 밑줄표시 없애기 */
+}
+
+/* 아이콘 스타일 지정 */
+.icon
+{
+    width: 17px;
+    height: 17px;
+    margin-left: 7px;   
+    margin-right: 2px;
+}
+
+.copyright
+{
+    margin: 15px;
+    color: #70707a;
+}
+
+#copyright-link
+{
+    text-decoration: none; /* 글자에 밑줄표시 없애기 */
+}
+
+/* 유튜브가 표시될 container */
+/* container가 flex면 넉넉한 화면에서 item들의 width, height를 보장해주고 화면이 작아지면 그에 맞추어 알아서 작아짐 */
+.video-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* 동영상이 16:9 비율로 노출되도록 width에 맞추어 height가 auto 조절됨 */
+.video-container iframe {
+    aspect-ratio: 16/9;
+    width: 720px;
+    height: auto; 
+    margin: 30px;
+}
+
+@media screen and (orientation: portrait) 
+{
+    .video-container iframe
+    {
+        margin: 10px;
+    }
+}
+
+/* 카페 최신글 정보가 전달될 container */
+/* container가 flex면 넉넉한 화면에서 item들의 width, height를 보장해주고 화면이 작아지면 그에 맞추어 알아서 작아짐 */
+.cafe-container {
+    display: flex;
+    justify-content: center;
+}
+
+.cafe-container .cafe-background {
+    width: 500px;
+    height: 150px;
+    margin: 50px 30px;
+    border-radius: 20px;
+    cursor: pointer; /* 클릭 가능한 커서 모양으로 설정 */
+    background-color: #f5f5f5;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* 테두리 스타일 추가 */
+    transition: transform 0.2s linear;
+} 
+
+.cafe-container .cafe-background:hover
+{
+    transform: scale(1.1);
+}
+
+.cafe-container .cafe-background-loading {
+    width: 500px;
+    height: 150px;
+    margin: 30px;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 추가 */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* 테두리 스타일 추가 */
+} 
+
+/* 카페 로딩중 문구 스타일 */
+.cafe-loading-title
+{
+    font-family: 'Jua', sans-serif; /* 글자 폰트 지정 */
+    user-select: none; /* 텍스트 드래그 방지 */
+    font-size: 30px;
+    margin : 30px;
+}
+
+/* 카페 제목 스타일 */
+.cafe-title
+{
+    font-family: 'Jua', sans-serif; /* 글자 폰트 지정 */
+    user-select: none; /* 텍스트 드래그 방지 */
+    font-size: 30px;
+    margin : 20px 30px;
+}
+
+/* 카페 닉네임 스타일 */
+.cafe-nickname
+{
+    font-family: 'Jua', sans-serif; /* 글자 폰트 지정 */
+    user-select: none; /* 텍스트 드래그 방지 */
+    font-size: 20px;
+    margin : 20px;
+    margin-left: 32px;
+    margin-bottom: 0px;
+}
+
+/* 카페 글쓴날짜 스타일 */
+.cafe-time
+{
+    font-family: 'Jua', sans-serif; /* 글자 폰트 지정 */
+    user-select: none; /* 텍스트 드래그 방지 */
+    font-size: 20px;
+    margin : 20px;
+    margin-bottom: 0px;
+}
+
+.cafe-detail-container {
+    display: flex;
+}
+
+/* 카페 주의사항 container */
+.cafe-caution-container
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.cafe-caution-container div
+{
+    font-family: 'Jua', sans-serif; /* 글자 폰트 지정 */
+    font-size: 20px;
+    margin: 5px;
+    color: #70707a;
+}
+
+
+/* 라이브 방송이 표시될 container */
+/* container가 flex면 넉넉한 화면에서 item들의 width, height를 보장해주고 화면이 작아지면 그에 맞추어 알아서 작아짐 */
+.broadcast-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* 라이브 방송 iframe 형식 설정 */
+/* 동영상이 16:9 비율로 노출되도록 width에 맞추어 height가 auto 조절됨 */
+.broadcast-container iframe {
+    aspect-ratio: 16/9;
+    width: 720px;
+    height: auto; 
+    margin: 30px;
+}
+
+@media screen and (orientation: portrait) 
+{
+    .broadcast-container iframe
+    {
+        margin: 10px;
+    }
+}

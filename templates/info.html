@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 메인페이지에서 버튼 클릭으로 접근 가능한 컨텐츠 제공 홈페이지-->
+<!-- info-styles.css 연동, font 연동-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/info-styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=swap">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="../static/js/info-script.js"></script>
+    <link rel="icon" href="../static/images/favicon.png" type="image/x-icon"> <!-- 홈페이지 대표 아이콘 -->
+    <title>StelLive Fan Site</title>
+</head>
+
+<body>  
+    <!-- 페이지 상단 로고가 표시되는 부분-->
+    <div class="logo-container">
+        <img id="logo-menu" src="../static/images/menu_icon.png"  onclick="toggleLeftMenu()" alt="세로모드 메뉴 아이콘">
+        <a href="main.html">
+            <img id="logo-title" src="../static/images/StelLive_Site_Name.png" alt="스텔라이브 타이틀">
+        </a>
+    </div>
+
+    <!-- 각 기수 클릭 메뉴-->
+    <!-- 각 기수 버튼 클릭 시 changeActive로 해당 버튼만 활성화, showContent로 매치되는 메뉴 노출-->
+    <div class="top-menu-part">
+        <a href="#" class="top-menu-button" id="top-menu-gangGi" onclick="changeActive(this.id); showContentLeftMenu('left-menu-gangGi', 'main-content-init-GangGi');">강지</a>
+        <a href="#" class="top-menu-button" id="top-menu-1th" onclick="changeActive(this.id); showContentLeftMenu('left-menu-1th', 'main-content-init-1th');">1기생</a>
+        <a href="#" class="top-menu-button" id="top-menu-2nd" onclick="changeActive(this.id); showContentLeftMenu('left-menu-2nd', 'main-content-init-2nd');">2기생</a>
+    </div>
+
+    <!-- 화면 왼쪽에 표시되는 메뉴영역-->
+    <div class="mid-container  clearfix">
+        <div id="left-menu-part">
+            <div class="left-menu-container" id="left-menu-gangGi">
+                <!-- 강지 메뉴-->
+                <div style="color: #8688df;" class="left-menu-title">강지</div>
+
+                <!-- 트위터 api 이용 및 최신글 크롤링이 어려워 구현 보류 -->
+                <!-- <div class="icon-container">
+                    <img src="../static/images/x-icon.webp" class="icon" alt="X 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-twitter-GangGi');">최근 트위터</a>
+                </div> -->
+                <div class="icon-container">
+                    <img src="../static/images/cafe-icon.webp" class="icon" alt="네이버 카페 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-cafe-GangGi');">최근 팬카페 글</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/youtube-icon.png" class="icon" alt="유튜브 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-youtube-GangGi');">최근 유튜브</a>
+                </div>
+                <!-- 차후 치지직에서 embed 코드 지원하면 트위치에서 변경예정 -->
+                <div class="icon-container">
+                    <img src="../static/images/twitch-icon.png" class="icon" alt="트위치 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-chzzk-GangGi');">방송 보러가기</a>
+                </div>
+                
+            </div>
+            <div class="left-menu-container" id="left-menu-1th">
+                <!-- 칸나 메뉴-->
+                <div style="color: #393f98;" class="left-menu-title">아이리 칸나</div>
+
+                <!-- <div class="icon-container">
+                    <img src="../static/images/x-icon.webp" class="icon" alt="X 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-twitter-Kanna');">최근 트위터</a>
+                </div> -->
+                <div class="icon-container">
+                    <img src="../static/images/cafe-icon.webp" class="icon" alt="네이버 카페 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-cafe-Kanna');">최근 팬카페 글</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/youtube-icon.png" class="icon" alt="유튜브 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-youtube-Kanna');">최근 유튜브</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/twitch-icon.png" class="icon" alt="트위치 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-chzzk-Kanna');">방송 보러가기</a>
+                </div>
+
+                <!-- 유니 메뉴-->
+                <div style="color: #b77de4;" class="left-menu-title">아야츠노 유니</div>
+
+                <!-- <div class="icon-container">
+                    <img src="../static/images/x-icon.webp" class="icon" alt="X 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-twitter-Yuni');">최근 트위터</a>
+                </div> -->
+                <div class="icon-container">
+                    <img src="../static/images/cafe-icon.webp" class="icon" alt="네이버 카페 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-cafe-Yuni');">최근 팬카페 글</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/youtube-icon.png" class="icon" alt="유튜브 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-youtube-Yuni');">최근 유튜브</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/twitch-icon.png" class="icon" alt="트위치 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-chzzk-Yuni');">방송 보러가기</a>
+                </div>
+            </div>
+            <div class="left-menu-container" id="left-menu-2nd">
+                <!-- 히나 메뉴-->
+                <div style="color: #ae4957;" class="left-menu-title">시라유키 히나</div>
+                
+                <!-- <div class="icon-container">
+                    <img src="../static/images/x-icon.webp" class="icon" alt="X 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-twitter-Hina');">최근 트위터</a>
+                </div> -->
+                <div class="icon-container">
+                    <img src="../static/images/cafe-icon.webp" class="icon" alt="네이버 카페 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-cafe-Hina');">최근 팬카페 글</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/youtube-icon.png" class="icon" alt="유튜브 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-youtube-Hina');">최근 유튜브</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/twitch-icon.png" class="icon" alt="트위치 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-chzzk-Hina');">방송 보러가기</a>
+                </div>
+
+                <!-- 마시로 메뉴-->
+                <div style="color: #595960;" class="left-menu-title">네네코 마시로</div>
+                
+                <!-- <div class="icon-container">
+                    <img src="../static/images/x-icon.webp" class="icon" alt="X 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-twitter-Masiro');">최근 트위터</a>
+                </div> -->
+                <div class="icon-container">
+                    <img src="../static/images/cafe-icon.webp" class="icon" alt="네이버 카페 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-cafe-Masiro');">최근 팬카페 글</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/youtube-icon.png" class="icon" alt="유튜브 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-youtube-Masiro');">최근 유튜브</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/twitch-icon.png" class="icon" alt="트위치 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-chzzk-Masiro');">방송 보러가기</a>
+                </div>
+
+                <!-- 타비 메뉴-->
+                <div style="color: #72a9c9;" class="left-menu-title">아라하시 타비</div>
+                
+                <!-- <div class="icon-container">
+                    <img src="../static/images/x-icon.webp" class="icon" alt="X 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-twitter-Tabi');">최근 트위터</a>
+                </div> -->
+                <div class="icon-container">
+                    <img src="../static/images/cafe-icon.webp" class="icon" alt="네이버 카페 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-cafe-Tabi');">최근 팬카페 글</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/youtube-icon.png" class="icon" alt="유튜브 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-youtube-Tabi');">최근 유튜브</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/twitch-icon.png" class="icon" alt="트위치 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-chzzk-Tabi');">방송 보러가기</a>
+                </div>
+
+                <!-- 리제 메뉴-->
+                <div style="color: #b82525;" class="left-menu-title">아카네 리제</div>
+                
+                <!-- <div class="icon-container">
+                    <img src="../static/images/x-icon.webp" class="icon" alt="X 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-twitter-Rize');">최근 트위터</a>
+                </div> -->
+                <div class="icon-container">
+                    <img src="../static/images/cafe-icon.webp" class="icon" alt="네이버 카페 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-cafe-Rize');">최근 팬카페 글</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/youtube-icon.png" class="icon" alt="유튜브 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-youtube-Rize');">최근 유튜브</a>
+                </div>
+                <div class="icon-container">
+                    <img src="../static/images/twitch-icon.png" class="icon" alt="트위치 아이콘">
+                    <a href="#" class="left-sub-menu" onclick="showContentMainPart('main-content-chzzk-Rize');">방송 보러가기</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-contents-part">
+            <!-- <img class="maintenance" src="../static/images/maintenance.png" alt="준비중 아이콘"> -->
+
+            <!-- 강지 메인 컨텐츠 -->
+            <div class="main-contents">
+
+                <!-- 강지 메인 초기화면 -->
+                <div class="main-content-init" id="main-content-init-GangGi">
+                    <div class="main-content-init-1person-container">
+                        <img src="../static/images/main_GangGi_title.png" alt="강지 메인 컨텐츠 초기 제목 이미지">
+                        <img src="../static/images/main_GangGi_image.png" alt="강지 메인 컨텐츠 초기 이미지">
+                    </div>
+                </div>
+
+                <div class="main-content-twitter" id="main-content-twitter-GangGi">
+                    강지 트위터 레이아웃
+                </div>
+
+                <div class="main-content-cafe" id="main-content-cafe-GangGi">
+                    <div class="cafe-container">
+                        <!-- 강지 팬카페 레이아웃 -->
+
+                        <!-- ajax 서버에서 데이터를 가져오는 중 노출되는 class -->
+                        <div class="cafe-background-loading">
+                            <div class="cafe-loading-title">
+                                데이터 로딩중 !
+                            </div>   
+                        </div>
+
+                        <!-- ajax 서버에서 데이터를 가져온 후 노출되는 class -->
+                        <!-- 해당 cafe-background 영역 클릭 시 cafe_link로 이동 (onclick 방식, <a> 태그로도 가능해보임)-->
+                        <div class="cafe-background">
+                            <div class="cafe-title">
+                                <!-- info-script.js에서 제목 string 삽입-->
+                            </div>
+                            
+                            <div class="cafe-detail-container">
+                                <div class="cafe-nickname">
+                                    <!-- 카페 닉네임 하드코딩 -->
+                                    강지1
+                                </div>
+                                <div class="cafe-time">
+                                    <!-- info-script.js에서 올린날짜 string 삽입-->
+                                </div>
+                            </div>      
+                        </div>
+                    </div> 
+                    
+                    <!-- 카페 최신글에 대한 부가설명, 주의점 -->
+                    <div class="cafe-caution-container">
+                        <div class="cafe-caution-background">
+                            <div>✅ 박스를 클릭하여 게시글로 이동할 수 있습니다.</div>
+                            <div>✅ 팬카페 가입 후 글을 열람할 수 있습니다.</div>
+                            <div>✅ 강지의 일상 게시판의 최신 글을 보여줍니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content-youtube" id="main-content-youtube-GangGi">
+                    <div class="video-container">
+                        <!-- 강지 유튜브 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                    </div>
+                </div>
+
+                <div class="main-content-chzzk" id="main-content-chzzk-GangGi">
+                    <div class="broadcast-container">
+                        <!-- 강지 방송 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                        <!-- 현재 트위치 embed src 제공, 차후 치지직 embed src 제공 시 치지직으로 변경 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1기생 메인 컨텐츠 -->
+            <div class="main-contents">
+
+                <!-- 1기생 메인 초기화면 -->
+                <div class="main-content-init" id="main-content-init-1th">
+                    <div class="main-content-init-container">
+                        <img src="../static/images/main_1th_title.png" alt="1기생 메인 컨텐츠 초기 제목 이미지">
+                        <img src="../static/images/main_1th_image.png" alt="1기생 메인 컨텐츠 초기 이미지">
+                    </div>
+                </div>
+
+                <!-- 칸나 메인 컨텐츠 -->
+                <div class="main-content-twitter" id="main-content-twitter-Kanna">
+                    아이리 칸나 트위터 레이아웃
+                </div>
+
+                <div class="main-content-cafe" id="main-content-cafe-Kanna">
+                    <!-- 칸나 팬카페 레이아웃 -->
+                    <div class="cafe-container">
+                        <!-- ajax 서버에서 데이터를 가져오는 중 노출되는 class -->
+                        <div class="cafe-background-loading">
+                            <div class="cafe-loading-title">
+                                데이터 로딩중 !
+                            </div>   
+                        </div>
+
+                        <!-- ajax 서버에서 데이터를 가져온 후 노출되는 class -->
+                        <!-- 해당 cafe-background 영역 클릭 시 cafe_link로 이동 (onclick 방식, <a> 태그로도 가능해보임)-->
+                        <div class="cafe-background">
+                            <div class="cafe-title">
+                                <!-- info-script.js에서 제목 string 삽입-->
+                            </div>
+                            
+                            <div class="cafe-detail-container">
+                                <div class="cafe-nickname">
+                                    <!-- 카페 닉네임 하드코딩 -->
+                                    아이리 칸나
+                                </div>
+                                <div class="cafe-time">
+                                    <!-- info-script.js에서 올린날짜 string 삽입-->
+                                </div>
+                            </div>        
+                        </div>
+                    </div>
+
+                    <!-- 카페 최신글에 대한 부가설명, 주의점 -->
+                    <div class="cafe-caution-container">
+                        <div class="cafe-caution-background">
+                            <div>✅ 박스를 클릭하여 게시글로 이동할 수 있습니다.</div>
+                            <div>✅ 팬카페 가입 후 글을 열람할 수 있습니다.</div>
+                            <div>✅ 스텔라 게시판의 멤버별 최신 글을 보여줍니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content-youtube" id="main-content-youtube-Kanna">
+                    <div class="video-container">
+                        <!-- 아이리 칸나 유튜브 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                    </div>
+                </div>
+                <div class="main-content-chzzk" id="main-content-chzzk-Kanna">
+                    <div class="broadcast-container">
+                        <!-- 칸나 방송 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                        <!-- 현재 트위치 embed src 제공, 차후 치지직 embed src 제공 시 치지직으로 변경 -->
+                    </div>
+                </div>
+
+                <!-- 유니 메인 컨텐츠 -->
+                <div class="main-content-twitter" id="main-content-twitter-Yuni">
+                    아야츠노 유니 트위터 레이아웃
+                </div>
+
+                <div class="main-content-cafe" id="main-content-cafe-Yuni">
+                    <!-- 유니 팬카페 레이아웃 -->
+                    <div class="cafe-container">
+                        <!-- ajax 서버에서 데이터를 가져오는 중 노출되는 class -->
+                        <div class="cafe-background-loading">
+                            <div class="cafe-loading-title">
+                                데이터 로딩중 !
+                            </div>   
+                        </div>
+
+                        <!-- ajax 서버에서 데이터를 가져온 후 노출되는 class -->
+                        <!-- 해당 cafe-background 영역 클릭 시 cafe_link로 이동 (onclick 방식, <a> 태그로도 가능해보임)-->
+                        <div class="cafe-background">
+                            <div class="cafe-title">
+                                <!-- info-script.js에서 제목 string 삽입-->
+                            </div>
+                            
+                            <div class="cafe-detail-container">
+                                <div class="cafe-nickname">
+                                    <!-- 카페 닉네임 하드코딩 -->
+                                    아야츠노 유니
+                                </div>
+                                <div class="cafe-time">
+                                    <!-- info-script.js에서 올린날짜 string 삽입-->
+                                </div>
+                            </div>        
+                        </div>
+                    </div> 
+
+                    <!-- 카페 최신글에 대한 부가설명, 주의점 -->
+                    <div class="cafe-caution-container">
+                        <div class="cafe-caution-background">
+                            <div>✅ 박스를 클릭하여 게시글로 이동할 수 있습니다.</div>
+                            <div>✅ 팬카페 가입 후 글을 열람할 수 있습니다.</div>
+                            <div>✅ 스텔라 게시판의 멤버별 최신 글을 보여줍니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content-youtube" id="main-content-youtube-Yuni">
+                    <div class="video-container">
+                        <!-- 아야츠노 유니 유튜브 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                    </div>
+                </div>
+
+                <div class="main-content-chzzk" id="main-content-chzzk-Yuni">
+                    <div class="broadcast-container">
+                        <!-- 유니 방송 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                        <!-- 현재 트위치 embed src 제공, 차후 치지직 embed src 제공 시 치지직으로 변경 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2기생 메인 컨텐츠 -->
+            <div class="main-contents">
+                <!-- 2기생 메인 초기화면 -->
+                <div class="main-content-init" id="main-content-init-2nd">
+                    <div class="main-content-init-container">
+                        <img src="../static/images/main_2nd_title.png" alt="2기생 메인 컨텐츠 초기 제목 이미지">
+                        <img src="../static/images/main_2nd_image.png" alt="2기생 메인 컨텐츠 초기 이미지">
+                    </div>
+                </div>
+
+                
+                
+
+                <!-- 히나 메인 컨텐츠 -->
+                <div class="main-content-twitter" id="main-content-twitter-Hina">
+                    시라유키 히나 트위터 레이아웃
+                </div>
+
+                <div class="main-content-cafe" id="main-content-cafe-Hina">
+                    <!-- 히나 팬카페 레이아웃 -->
+                    <div class="cafe-container">
+                        <!-- ajax 서버에서 데이터를 가져오는 중 노출되는 class -->
+                        <div class="cafe-background-loading">
+                            <div class="cafe-loading-title">
+                                데이터 로딩중 !
+                            </div>   
+                        </div>
+
+                        <!-- ajax 서버에서 데이터를 가져온 후 노출되는 class -->
+                        <!-- 해당 cafe-background 영역 클릭 시 cafe_link로 이동 (onclick 방식, <a> 태그로도 가능해보임)-->
+                        <div class="cafe-background">
+                            <div class="cafe-title">
+                                <!-- info-script.js에서 제목 string 삽입-->
+                            </div>
+                            
+                            <div class="cafe-detail-container">
+                                <div class="cafe-nickname">
+                                    <!-- 카페 닉네임 하드코딩 -->
+                                    시라유키 히나
+                                </div>
+                                <div class="cafe-time">
+                                    <!-- info-script.js에서 올린날짜 string 삽입-->
+                                </div>
+                            </div>        
+                        </div>
+                    </div> 
+
+                    <!-- 카페 최신글에 대한 부가설명, 주의점 -->
+                    <div class="cafe-caution-container">
+                        <div class="cafe-caution-background">
+                            <div>✅ 박스를 클릭하여 게시글로 이동할 수 있습니다.</div>
+                            <div>✅ 팬카페 가입 후 글을 열람할 수 있습니다.</div>
+                            <div>✅ 스텔라 게시판의 멤버별 최신 글을 보여줍니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content-youtube" id="main-content-youtube-Hina">
+                    <div class="video-container">
+                        <!-- 시라유키 히나 유튜브 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                    </div>
+                </div>
+
+                <div class="main-content-chzzk" id="main-content-chzzk-Hina">
+                    <div class="broadcast-container">
+                        <!-- 히나 방송 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                        <!-- 현재 트위치 embed src 제공, 차후 치지직 embed src 제공 시 치지직으로 변경 -->
+                    </div>
+                </div>
+
+                <!-- 마시로 메인 컨텐츠 -->
+                <div class="main-content-twitter" id="main-content-twitter-Masiro">
+                    네네코 마시로 트위터 레이아웃
+                </div>
+
+                <div class="main-content-cafe" id="main-content-cafe-Masiro">
+                    <!-- 마시로 팬카페 레이아웃 -->
+                    <div class="cafe-container">
+                        <!-- ajax 서버에서 데이터를 가져오는 중 노출되는 class -->
+                        <div class="cafe-background-loading">
+                            <div class="cafe-loading-title">
+                                데이터 로딩중 !
+                            </div>   
+                        </div>
+
+                        <!-- ajax 서버에서 데이터를 가져온 후 노출되는 class -->
+                        <!-- 해당 cafe-background 영역 클릭 시 cafe_link로 이동 (onclick 방식, <a> 태그로도 가능해보임)-->
+                        <div class="cafe-background">
+                            <div class="cafe-title">
+                                <!-- info-script.js에서 제목 string 삽입-->
+                            </div>
+                            
+                            <div class="cafe-detail-container">
+                                <div class="cafe-nickname">
+                                    <!-- 카페 닉네임 하드코딩 -->
+                                    네네코 마시로
+                                </div>
+                                <div class="cafe-time">
+                                    <!-- info-script.js에서 올린날짜 string 삽입-->
+                                </div>
+                            </div>        
+                        </div>
+                    </div> 
+                    
+                    <!-- 카페 최신글에 대한 부가설명, 주의점 -->
+                    <div class="cafe-caution-container">
+                        <div class="cafe-caution-background">
+                            <div>✅ 박스를 클릭하여 게시글로 이동할 수 있습니다.</div>
+                            <div>✅ 팬카페 가입 후 글을 열람할 수 있습니다.</div>
+                            <div>✅ 스텔라 게시판의 멤버별 최신 글을 보여줍니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content-youtube" id="main-content-youtube-Masiro">
+                    <div class="video-container">
+                        <!-- 네네코 마시로 유튜브 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                    </div>
+                </div>
+
+                <div class="main-content-chzzk" id="main-content-chzzk-Masiro">
+                    <div class="broadcast-container">
+                        <!-- 마시로 방송 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                        <!-- 현재 트위치 embed src 제공, 차후 치지직 embed src 제공 시 치지직으로 변경 -->
+                    </div>
+                </div>
+
+                <!-- 타비 메인 컨텐츠 -->
+                <div class="main-content-twitter" id="main-content-twitter-Tabi">
+                    아라하시 타비 트위터 레이아웃
+                </div>
+
+                <div class="main-content-cafe" id="main-content-cafe-Tabi">
+                    <!-- 타비 팬카페 레이아웃 -->
+                    <div class="cafe-container">
+                        <!-- ajax 서버에서 데이터를 가져오는 중 노출되는 class -->
+                        <div class="cafe-background-loading">
+                            <div class="cafe-loading-title">
+                                데이터 로딩중 !
+                            </div>   
+                        </div>
+
+                        <!-- ajax 서버에서 데이터를 가져온 후 노출되는 class -->
+                        <!-- 해당 cafe-background 영역 클릭 시 cafe_link로 이동 (onclick 방식, <a> 태그로도 가능해보임)-->
+                        <div class="cafe-background">
+                            <div class="cafe-title">
+                                <!-- info-script.js에서 제목 string 삽입-->
+                            </div>
+                            
+                            <div class="cafe-detail-container">
+                                <div class="cafe-nickname">
+                                    <!-- 카페 닉네임 하드코딩 -->
+                                    아라하시 타비
+                                </div>
+                                <div class="cafe-time">
+                                    <!-- info-script.js에서 올린날짜 string 삽입-->
+                                </div>
+                            </div>        
+                        </div>
+                    </div>
+                    
+                    <!-- 카페 최신글에 대한 부가설명, 주의점 -->
+                    <div class="cafe-caution-container">
+                        <div class="cafe-caution-background">
+                            <div>✅ 박스를 클릭하여 게시글로 이동할 수 있습니다.</div>
+                            <div>✅ 팬카페 가입 후 글을 열람할 수 있습니다.</div>
+                            <div>✅ 스텔라 게시판의 멤버별 최신 글을 보여줍니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content-youtube" id="main-content-youtube-Tabi">
+                    <div class="video-container">
+                        <!-- 아라하시 타비 유튜브 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                    </div>
+                </div>
+
+                <div class="main-content-chzzk" id="main-content-chzzk-Tabi">
+                    <div class="broadcast-container">
+                        <!-- 타비 방송 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                        <!-- 현재 트위치 embed src 제공, 차후 치지직 embed src 제공 시 치지직으로 변경 -->
+                    </div>
+                </div>
+
+                <!-- 리제 메인 컨텐츠 -->
+                <div class="main-content-twitter" id="main-content-twitter-Rize">
+                    아카네 리제 트위터 레이아웃
+                </div>
+
+                <div class="main-content-cafe" id="main-content-cafe-Rize">
+                    <!-- 리제 팬카페 레이아웃 -->
+                    <div class="cafe-container">
+                        <!-- ajax 서버에서 데이터를 가져오는 중 노출되는 class -->
+                        <div class="cafe-background-loading">
+                            <div class="cafe-loading-title">
+                                데이터 로딩중 !
+                            </div>   
+                        </div>
+
+                        <!-- ajax 서버에서 데이터를 가져온 후 노출되는 class -->
+                        <!-- 해당 cafe-background 영역 클릭 시 cafe_link로 이동 (onclick 방식, <a> 태그로도 가능해보임)-->
+                        <div class="cafe-background">
+                            <div class="cafe-title">
+                                <!-- info-script.js에서 제목 string 삽입-->
+                            </div>
+                            
+                            <div class="cafe-detail-container">
+                                <div class="cafe-nickname">
+                                    <!-- 카페 닉네임 하드코딩 -->
+                                    아카네 리제
+                                </div>
+                                <div class="cafe-time">
+                                    <!-- info-script.js에서 올린날짜 string 삽입-->
+                                </div>
+                            </div>        
+                        </div>
+                    </div> 
+                    
+                    <!-- 카페 최신글에 대한 부가설명, 주의점 -->
+                    <div class="cafe-caution-container">
+                        <div class="cafe-caution-background">
+                            <div>✅ 박스를 클릭하여 게시글로 이동할 수 있습니다.</div>
+                            <div>✅ 팬카페 가입 후 글을 열람할 수 있습니다.</div>
+                            <div>✅ 스텔라 게시판의 멤버별 최신 글을 보여줍니다.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-content-youtube" id="main-content-youtube-Rize">
+                    <div class="video-container">
+                        <!-- 아카네 리제 유튜브 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                    </div>
+                </div>
+
+                <div class="main-content-chzzk" id="main-content-chzzk-Rize">
+                    <div class="broadcast-container">
+                        <!-- 리제 방송 레이아웃 -->
+                        <!-- info-script.js에서 iframe 삽입-->
+                        <!-- 현재 트위치 embed src 제공, 차후 치지직 embed src 제공 시 치지직으로 변경 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-part">
+        <div class="copyright">
+            <div>
+                ⓒ 2024. aika1118 All rights reserved.
+            </div>
+            <div>
+                This site is not associated with (주)스텔라이브
+            </div>
+            <div>
+                Some sourced from <a href="https://www.graphicsfamily.com" id="copyright-link">GraphicsFamily</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
