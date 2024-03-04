@@ -108,7 +108,7 @@ javascript 함수에서는 파라미터 정보를 바탕으로 html에 embed 될
 
 1. 저장소를 복제합니다: `git clone https://github.com/aika1118/tmp.git`
 2. `app.py` 파일을 실행합니다.
-
+3. 홈페이지 이미지는 차후 업로드 예정으로, 현재 버전에서는 웹 이미지가 깨져보일 수 있습니다.
 
 ## 라이센스
 
