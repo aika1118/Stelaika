@@ -280,6 +280,6 @@ api_key = 'AIzaSyACvxE1jRByHukPXrNJZ86Wy9Bx9c7ehzU'
 cache_time = 6 * 3600
 
 #로컬에서 구동할 때만 아래 코드 주석 해제
-# if __name__ == '__main__':
-#     #app.run(debug=True, use_reloader=False)
-#     app.run(host='0.0.0.0')
+if __name__ == '__main__':
+    #app.run(debug=True, use_reloader=False)
+    app.run(host='0.0.0.0')

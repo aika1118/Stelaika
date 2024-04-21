@@ -211,7 +211,7 @@ function showContentMainPart(id) {
     {
         channelId = "";
         parentLink = '127.0.0.1' // for local
-        parentLink = 'stelaika.onrender.com' // for pythonanywhere
+        //parentLink = 'stelaika.onrender.com' // for pythonanywhere
 
         switch(id)
         {
