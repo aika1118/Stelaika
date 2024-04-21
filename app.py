@@ -65,6 +65,7 @@ def truncate_cafe_title(s, max_length=10):
 def get_latest_cafe_link(url, member_name):
     options = webdriver.ChromeOptions()
     # headless 옵션 설정
+    options.add_argument('--no-sandbox')
     options.add_argument('--headless=new')
 
     driver = webdriver.Chrome(options=options)
@@ -280,6 +281,6 @@ api_key = 'AIzaSyACvxE1jRByHukPXrNJZ86Wy9Bx9c7ehzU'
 cache_time = 6 * 3600
 
 #로컬에서 구동할 때만 아래 코드 주석 해제
-if __name__ == '__main__':
-    #app.run(debug=True, use_reloader=False)
-    app.run(host='0.0.0.0')
+# if __name__ == '__main__':
+#     #app.run(debug=True, use_reloader=False)
+#     app.run(host='0.0.0.0')
