@@ -90,7 +90,7 @@ function showContentMainPart(id) {
         contents[i].style.display = 'none';
     }
 
-    var contents = document.getElementsByClassName('main-content-cafe');
+    var contents = document.getElementsByClassName('main-content-search');
     for (var i = 0; i < contents.length; i++) {
         contents[i].style.display = 'none';
     }
@@ -157,41 +157,46 @@ function showContentMainPart(id) {
     }
 
     // 카페 버튼 클릭
-    if (id.includes("main-content-cafe"))
+    if (id.includes("main-content-search"))
     {
         // Flask 서버에서 데이터를 가져오는 동안 loading용 class만 노출
-        $('#' + id + ' ' + '.cafe-background-loading').show()
-        $('#' + id + ' ' + '.cafe-background').hide();
-        //$('#' + id + ' ' + '.cafe-caution-container').hide();
+        $('#' + id + ' ' + '.search-background-loading').show()
+        $('#' + id + ' ' + '.search-background').hide();
+        //$('#' + id + ' ' + '.search-caution-container').hide();
         
 
         // Flask 서버에 데이터를 요청하는 AJAX 호출
         $.ajax({
             type: 'POST',
-            url: '/get_cafe_data',
+            url: '/get_search_data',
             success: function (data) {
                 // 성공적으로 데이터를 받아왔을 때 처리
-                cafeLink = data.cafe_link;
-                const cafeTitle = data.cafe_title;
-                const cafeTime = data.cafe_time;
+                var items = data;
+                searchLink = data.search_link;
+                var maxPost = 5;
+                
 
                 // 세로모드일 때 모바일 링크 제공하기
                 mediaQuery = window.matchMedia("(orientation: portrait)");
                 if (mediaQuery.matches)
-                    cafeLink = cafeLink.replace(/(https:\/\/)([^.]+)(.+)/, "$1m.$2$3")
+                    searchLink = searchLink.replace(/(https:\/\/)([^.]+)(.+)/, "$1m.$2$3")
+
+                member_name = id.split('-').pop()
+
+                for (let i = 0; i < maxPost; ++i)
+                {
+                    document.querySelector('#' + id + ' ' + '#' + member_name + '-search-background-' + String(i)).onclick = function() {
+                        window.open(items[i].link, '_blank');
+                    };
+                }
                 
-                element = document.querySelector('#' + id + ' ' + '.cafe-background');
-                element.onclick = function() {
-                    window.open(cafeLink, '_blank');
-                };
-
-                $('#' + id + ' ' + '.cafe-title').html(`${cafeTitle}`);
-                $('#' + id + ' ' + '.cafe-time').html(`${cafeTime}`);
-
+                for (let i = 0; i < maxPost; i++) 
+                    $('#' + id + ' ' + '#' + member_name + '-search-title-' + String(i)).html(`${items[i].title}`);
+                
                 // Flask 서버에서 데이터를 가져온 후 loading용 class hide 처리, 가져온 데이터가 담긴 class 보여줌
-                $('#' + id + ' ' + '.cafe-background').show()
-                //$('#' + id + ' ' + '.cafe-caution-container').show();
-                $('#' + id + ' ' + '.cafe-background-loading').hide()
+                $('#' + id + ' ' + '.search-background').show()
+                //$('#' + id + ' ' + '.search-caution-container').show();
+                $('#' + id + ' ' + '.search-background-loading').hide()
                 
             },
             data: {
@@ -200,7 +205,7 @@ function showContentMainPart(id) {
             },
             error: function () {
                 // 오류 발생 시 처리
-                $('#' + id + ' ' + '.cafe-background-loading').hide()
+                $('#' + id + ' ' + '.search-background-loading').hide()
                 $('#' + id).text('Error fetching data from Flask server.');
             }
         });
@@ -271,5 +276,4 @@ var mediaQuery = window.matchMedia("(orientation: landscape)");
 
 // 미디어 쿼리가 변경될 때 호출되는 함수 연결
 mediaQuery.addListener(handleMediaQueryChange);
-
 

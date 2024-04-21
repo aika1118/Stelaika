@@ -2,3 +2,4 @@ Flask
 selenium
 google-api-python-client
 gunicorn
+webdriver_manager
