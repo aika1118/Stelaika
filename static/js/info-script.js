@@ -156,7 +156,7 @@ function showContentMainPart(id) {
         });
     }
 
-    // 카페 버튼 클릭
+    // 최근소식 버튼 클릭
     if (id.includes("main-content-search"))
     {
         // Flask 서버에서 데이터를 가져오는 동안 loading용 class만 노출
@@ -176,10 +176,10 @@ function showContentMainPart(id) {
                 var maxPost = 5;
                 
 
-                // 세로모드일 때 모바일 링크 제공하기
-                mediaQuery = window.matchMedia("(orientation: portrait)");
-                if (mediaQuery.matches)
-                    searchLink = searchLink.replace(/(https:\/\/)([^.]+)(.+)/, "$1m.$2$3")
+                // // 세로모드일 때 모바일 링크 제공하기
+                // mediaQuery = window.matchMedia("(orientation: portrait)");
+                // if (mediaQuery.matches)
+                //     searchLink = searchLink.replace(/(https:\/\/)([^.]+)(.+)/, "$1m.$2$3")
 
                 member_name = id.split('-').pop()
 
