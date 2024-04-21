@@ -210,7 +210,8 @@ function showContentMainPart(id) {
     if (id.includes("main-content-chzzk"))
     {
         channelId = "";
-        parentLink = '127.0.0.1'
+        parentLink = '127.0.0.1' // for local
+        parentLink = 'stelaika.onrender.com' // for pythonanywhere
 
         switch(id)
         {
