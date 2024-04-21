@@ -65,6 +65,7 @@ def truncate_cafe_title(s, max_length=10):
 def get_latest_cafe_link(url, member_name):
     options = webdriver.ChromeOptions()
     # headless 옵션 설정
+    options.add_argument('--no-sandbox')
     options.add_argument('--headless=new')
 
     driver = webdriver.Chrome(options=options)
