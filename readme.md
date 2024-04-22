@@ -108,8 +108,9 @@ javascript 함수에서는 파라미터 정보를 바탕으로 html에 embed 될
 ## 설치
 
 1. 저장소를 복제합니다: `git clone https://github.com/aika1118/tmp.git`
-2. `app.py` 파일을 실행합니다.
-3. 또는 https://stelaika.pythonanywhere.com/ 링크로 접속할 수 있습니다.
+2. 유튜브, 네이버 api를 발급 받고 본인의 api정보를 app.py에 기입합니다.
+3. `app.py` 파일을 실행합니다.
+4. 또는 https://stelaika.pythonanywhere.com/ 링크로 접속할 수 있습니다.
 
 ## 라이센스
 
