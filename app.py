@@ -233,13 +233,13 @@ youtube_cache_dict = copy.deepcopy(member_dict)
 search_cache_dict = copy.deepcopy(member_dict)
 
 # 네이버 API 정보
-naver_client_id = ID
-naver_client_secret = SECRET
+naver_client_id = NAVER_CLIENT_ID # 외부 노출된 api 정보는 삭제 및 재발급
+naver_client_secret = NAVER_CLIENT_SECRET # 외부 노출된 api 정보는 삭제 및 재발급
 
 
 
 # YouTube API 키와 채널 ID를 입력하세요.
-api_key = API_KEY
+api_key = API_KEY # 외부 노출된 api 정보는 삭제 및 재발급
 
 # 캐시 데이터 저장 시간 (초단위)
 # 해당 시간 이후 api 새로 호출하여 정보 갱신
